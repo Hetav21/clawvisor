@@ -1,5 +1,53 @@
 # Changelog
 
+## [0.9.9](https://github.com/clawvisor/clawvisor/compare/v0.9.8...v0.9.9) (2026-05-28)
+
+
+### Features
+
+* add Google Sheets adapter with OAuth integration  ([#431](https://github.com/clawvisor/clawvisor/issues/431)) ([fa9a80f](https://github.com/clawvisor/clawvisor/commit/fa9a80f4b3e9767e12ae281b0e72276436fcaf27))
+* **cloudlogging:** coalesce log lines under request entries in GCP Logs Explorer ([#456](https://github.com/clawvisor/clawvisor/issues/456)) ([bdce746](https://github.com/clawvisor/clawvisor/commit/bdce746781fa96f0232cede77896c039fb1e148b))
+* **drive:** export specific sheet tabs ([#452](https://github.com/clawvisor/clawvisor/issues/452)) ([6be2a8c](https://github.com/clawvisor/clawvisor/commit/6be2a8cd836f23558bcd7be04f83e53b111b2e4d))
+* **intent:** scale verification strictness with action blast radius ([#437](https://github.com/clawvisor/clawvisor/issues/437)) ([cc66401](https://github.com/clawvisor/clawvisor/commit/cc6640115dce1ee07906e9267cad019c90beb431))
+* **llmproxy:** clarify inline task approval prompt ([#466](https://github.com/clawvisor/clawvisor/issues/466)) ([c2e8b1a](https://github.com/clawvisor/clawvisor/commit/c2e8b1ac5be9b357bfb3721637ae042f0c3582a1))
+* **llmproxy:** coalesce multi-tool turns into one approval ([#439](https://github.com/clawvisor/clawvisor/issues/439)) ([10d505a](https://github.com/clawvisor/clawvisor/commit/10d505acacffbe2fc466f176c4a22ab01dd1c09b))
+* **llmproxy:** conversation-based auto-approval for inline tasks ([#442](https://github.com/clawvisor/clawvisor/issues/442)) ([513ffcd](https://github.com/clawvisor/clawvisor/commit/513ffcd23ac1f36612408faee3840b9363ee1d1b))
+* **llmproxy:** distinguish passthrough-bearer-missing from vault miss ([#461](https://github.com/clawvisor/clawvisor/issues/461)) ([7dd806c](https://github.com/clawvisor/clawvisor/commit/7dd806c4635934025d28337a57c4aa112a5ba2a6))
+* **llmproxy:** inject Clawvisor routing notice on first assistant turn ([#443](https://github.com/clawvisor/clawvisor/issues/443)) ([cb54a6e](https://github.com/clawvisor/clawvisor/commit/cb54a6ec5be8dcdee960dd717accfffabd5817dd))
+* **llmproxy:** mint and inject Clawvisor conversation ID on Chat Completions turn 1 ([#444](https://github.com/clawvisor/clawvisor/issues/444)) ([55a041f](https://github.com/clawvisor/clawvisor/commit/55a041f4bce1e17bb6a5ac740c0d637e3f759cc5))
+* **llmproxy:** per-task LLM cost tracking + dashboard ([#467](https://github.com/clawvisor/clawvisor/issues/467)) ([c0e73a8](https://github.com/clawvisor/clawvisor/commit/c0e73a87c4b8a15128067d050edac8763fdead4a))
+* **llmproxy:** strengthen task-first prompt + add scenario eval harness ([#459](https://github.com/clawvisor/clawvisor/issues/459)) ([8dc9887](https://github.com/clawvisor/clawvisor/commit/8dc9887eb67c82d9438eb336573c394c434dc04c))
+* **runtime:** surface inline-chat pending tasks via store.Task ([#472](https://github.com/clawvisor/clawvisor/issues/472)) ([9defcab](https://github.com/clawvisor/clawvisor/commit/9defcabe9cd794a426826162cdc7daf2dfe3c6dd))
+* **taskrisk:** cache risk assessor prompt ([#450](https://github.com/clawvisor/clawvisor/issues/450)) ([5f9d79a](https://github.com/clawvisor/clawvisor/commit/5f9d79ae77f6fcf5b2d510b3424622ed5a6b42b7))
+* **taskrisk:** scope risk to intent-allowed capability ([#438](https://github.com/clawvisor/clawvisor/issues/438)) ([6382f3f](https://github.com/clawvisor/clawvisor/commit/6382f3fc5adf5c3c837423049d505d0252a9ac9f))
+
+
+### Bug Fixes
+
+* **adaptergen:** isolate generated adapters per user ([#432](https://github.com/clawvisor/clawvisor/issues/432)) ([b46d77f](https://github.com/clawvisor/clawvisor/commit/b46d77f19ed4d0720d3a568b3332763ede624e1f))
+* **api:** respect caller-supplied *slog.Logger via WithLogger option ([#460](https://github.com/clawvisor/clawvisor/issues/460)) ([ab4270d](https://github.com/clawvisor/clawvisor/commit/ab4270d5589779122c3a7b905e621da8cf1b718b))
+* **haikuproxy:** revert base URL prefix to /v1 ([#473](https://github.com/clawvisor/clawvisor/issues/473)) ([1f227ff](https://github.com/clawvisor/clawvisor/commit/1f227ff72a8d55b19cff1f7bd04dd264e9d05e20))
+* **intent:** cache proxy-lite verifier prompt separately ([#447](https://github.com/clawvisor/clawvisor/issues/447)) ([0d32eeb](https://github.com/clawvisor/clawvisor/commit/0d32eeb03d860a288d28f5e26d0537eafbf444fb))
+* **llmproxy:** accept `head -N` / `tail -N` bare-digit shorthand in read-only bash inspector ([#449](https://github.com/clawvisor/clawvisor/issues/449)) ([de197fa](https://github.com/clawvisor/clawvisor/commit/de197fa3046a242d9013fa6cf91418d492a95570))
+* **llmproxy:** accept echo with any dashed argument ([#458](https://github.com/clawvisor/clawvisor/issues/458)) ([5a23dae](https://github.com/clawvisor/clawvisor/commit/5a23dae91b7db2b348872e357f2db7cabc4cabda))
+* **llmproxy:** clarify task creation timing ([#448](https://github.com/clawvisor/clawvisor/issues/448)) ([47008a1](https://github.com/clawvisor/clawvisor/commit/47008a1fe8e5e8046e3c05bab687abb38c46187b))
+* **llmproxy:** disambiguate one-off approvals via transcript marker ([#436](https://github.com/clawvisor/clawvisor/issues/436)) ([79889dc](https://github.com/clawvisor/clawvisor/commit/79889dc55d101ea69fe475eb99941d00bdff6f12))
+* **llmproxy:** extend inline task approval hold lifetime ([#453](https://github.com/clawvisor/clawvisor/issues/453)) ([4806942](https://github.com/clawvisor/clawvisor/commit/4806942802de5b61dd399619880778e546e70929))
+* **llmproxy:** ignore stub-length autovault placeholders ([#474](https://github.com/clawvisor/clawvisor/issues/474)) ([5b423bb](https://github.com/clawvisor/clawvisor/commit/5b423bb581387358e0dbd76076828079013f1f98))
+* **llmproxy:** return harness-shaped errors so the user can recover ([#451](https://github.com/clawvisor/clawvisor/issues/451)) ([ec5b9f1](https://github.com/clawvisor/clawvisor/commit/ec5b9f1598d97f474f0267654449d6951507c43a))
+* **llmproxy:** reuse inline risk assessment on manual approval ([#468](https://github.com/clawvisor/clawvisor/issues/468)) ([0385694](https://github.com/clawvisor/clawvisor/commit/0385694f4d08d29325d2e5748f3bfcf606f5f525))
+* **llmproxy:** scope coalesced approval hold to conversation ([#441](https://github.com/clawvisor/clawvisor/issues/441)) ([f07322c](https://github.com/clawvisor/clawvisor/commit/f07322cf4442e3697503481802b7770fab09c829))
+* **llmproxy:** stop re-firing approval release on stale OpenAI history ([#457](https://github.com/clawvisor/clawvisor/issues/457)) ([f93dc0d](https://github.com/clawvisor/clawvisor/commit/f93dc0dc8abac651b94b677743662d5e9de4e5db))
+* **llmproxy:** stop treating Bash `description` as a per-call rationale ([#445](https://github.com/clawvisor/clawvisor/issues/445)) ([712d150](https://github.com/clawvisor/clawvisor/commit/712d15029a54d0ff0298118baa936c34a6bda1eb))
+* **llmproxy:** thread matched task_id into tool_use audit rows ([#463](https://github.com/clawvisor/clawvisor/issues/463)) ([a46712b](https://github.com/clawvisor/clawvisor/commit/a46712b834b255b4ed186485d243229d3821f9d4))
+* redact internal error from risk assessor and log Redis outcome failures ([#434](https://github.com/clawvisor/clawvisor/issues/434)) ([9886eb5](https://github.com/clawvisor/clawvisor/commit/9886eb55f7ba17d4876be5f00d4bccbcad382dfd))
+* **web:** count proxy/runtime success outcomes as executed on dashboard ([#471](https://github.com/clawvisor/clawvisor/issues/471)) ([cd73540](https://github.com/clawvisor/clawvisor/commit/cd73540ebbfb08f32780ad54940d60a296775ccd))
+
+
+### Reverts
+
+* **llmproxy:** restore 10m TTL for inline approvals ([#454](https://github.com/clawvisor/clawvisor/issues/454)) ([e1983c8](https://github.com/clawvisor/clawvisor/commit/e1983c8fc89c6eb4c04925db8e73d403ca134605))
+
 ## [0.9.8](https://github.com/clawvisor/clawvisor/compare/v0.9.7...v0.9.8) (2026-05-21)
 
 
